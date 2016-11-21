@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Config;
 
 /* admin pages */
 
+/*
 Route::group(['middleware' => ['web', 'auth']], function ($router) {
     $router->group(['prefix' => Config::get('copya.admin_path'), 'namespace' => 'Admin',], function($router){
 
@@ -24,7 +25,7 @@ Route::group(['middleware' => ['web', 'auth']], function ($router) {
             $router->get('{id}/edit', 'PagesController@edit')->name('post.edit');
         });
 
-
     });
-});
+});*/
+
 

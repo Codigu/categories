@@ -15,5 +15,5 @@ use Illuminate\Http\Request;
 
 
 Route::group(['middleware' => ['auth:api']], function ($router){
-    $router->resource('posts', 'UsersController');
+    $router->resource('categories', 'CategoriesController');
 });
