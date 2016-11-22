@@ -1,19 +1,19 @@
 <?php
 
-namespace Copya\Console;
+namespace CopyaCategory\Console;
 
 use Illuminate\Console\Command;
 use Symfony\Component\Process\Process;
 use Exception;
 
-class CopyaMigration extends Command
+class CopyaCategoryMigration extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'copyacategory:migration';
+    protected $signature = 'copya-category:migration';
 
     /**
      * The console command description.

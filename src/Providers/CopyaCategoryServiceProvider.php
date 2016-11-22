@@ -4,7 +4,7 @@ namespace CopyaCategory\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Route;
-
+use CopyaCategory\Console\CopyaCategoryMigration;
 
 class CopyaCategoryServiceProvider extends ServiceProvider
 {
@@ -16,6 +16,10 @@ class CopyaCategoryServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->publishes([
+            __DIR__.'/../../resources/assets/js' => base_path('resources/assets/js'),
+        ], 'copya-category');
+
         $this->defineRoutes();
     }
 
@@ -29,7 +33,7 @@ class CopyaCategoryServiceProvider extends ServiceProvider
         if (! $this->app->routesAreCached()) {
             $router = app('router');
 
-            $router->group(['namespace' => 'Copya\Http\Controllers'], function ($router) {
+            $router->group(['namespace' => 'CopyaCategory\Http\Controllers'], function ($router) {
 
                 require __DIR__.'/../routes/console.php';
                 require __DIR__.'/../routes/web.php';
@@ -60,7 +64,8 @@ class CopyaCategoryServiceProvider extends ServiceProvider
 
     public function register()
     {
-
-
+        if ($this->app->runningInConsole()) {
+            $this->commands([CopyaCategoryMigration::class]);
+        }
     }
 }

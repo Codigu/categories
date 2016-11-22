@@ -2,7 +2,7 @@
 
 namespace Copya\Http\Controllers\Admin;
 
-class PagesController extends BaseController
+class CategoriesController extends BaseController
 {
     protected $model;
 

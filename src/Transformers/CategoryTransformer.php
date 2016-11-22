@@ -1,18 +1,18 @@
 <?php
 
-namespace Copya\Transformers;
+namespace CopyaCategory\Transformers;
 
 use League\Fractal\TransformerAbstract;
-use Copya\Eloquent\Form;
+use CopyaCategory\Eloquent\Category;
 
 class CategoryTransformer extends TransformerAbstract
 {
-    public function transform(Form $form)
+    public function transform(Category $category)
     {
         return [
-            'id' => (int) $form->id,
-            'name' => $form->name,
-            'display_name' => $form->display_name,
+            'id' => (int) $category->id,
+            'name' => $category->name,
+            'description' => $category->description,
         ];
     }
 }
