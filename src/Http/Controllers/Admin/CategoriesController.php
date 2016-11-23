@@ -1,6 +1,8 @@
 <?php
 
-namespace Copya\Http\Controllers\Admin;
+namespace CopyaCategory\Http\Controllers\Admin;
+
+use Copya\Http\Controllers\Admin\BaseController;
 
 class CategoriesController extends BaseController
 {
