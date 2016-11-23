@@ -10,6 +10,19 @@ function CategoryCtrl($scope, $sce, $state, $stateParams, categoryService) {
         modalElem.children('.modal-dialog').removeClass('modal-lg');
     };
 
+    $scope.deleteCategory = function(category){
+        if(confirm("Are you sure you want to delete this Category?")){
+            categoryService.delete({id: category.id}, function(result){
+                 alert('Category delete successfully!');
+                 var itemIndex = $scope.categories.indexOf(category);
+                 $scope.categories.splice(itemIndex, 1);
+
+            }, function(err){
+
+            });
+        }
+    };
+
     $scope.submitCategoryForm = function(isValid) {
         // check to make sure the form is completely valid
         if (isValid) {

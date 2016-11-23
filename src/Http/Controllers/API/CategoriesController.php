@@ -57,4 +57,15 @@ class CategoriesController extends ApiBaseController
 
         return $this->item($category, new CategoryTransformer);
     }
+
+    public function destroy($id)
+    {
+        try{
+            Category::destroy($id);
+        } catch (Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+
+        return response()->json(['deleted' => true]);
+    }
 }
