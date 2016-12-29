@@ -20,6 +20,10 @@ class CopyaCategoryServiceProvider extends ServiceProvider
             __DIR__.'/../../resources/assets/js' => base_path('resources/assets/js'),
         ], 'copya-category');
 
+        $this->publishes([
+            __DIR__.'/../../resources/assets/views/widgets' => base_path('resources/views/vendor/copya/front/widgets'),
+        ], 'category-views');
+
         $this->defineRoutes();
     }
 
