@@ -2,9 +2,11 @@
 
 namespace CopyaCategory\Providers;
 
+use CopyaCategory\Shortcodes\CategoryShortcode;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Route;
 use CopyaCategory\Console\CopyaCategoryMigration;
+use Webwizo\Shortcodes\Facades\Shortcode;
 
 class CopyaCategoryServiceProvider extends ServiceProvider
 {
@@ -71,5 +73,7 @@ class CopyaCategoryServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->commands([CopyaCategoryMigration::class]);
         }
+
+        Shortcode::register('categories', CategoryShortcode::class);
     }
 }
